@@ -9,7 +9,7 @@ import {
 
 const todos: ITodo[] = [
   { text: "ubuntu", completed: false },
-  { text: "Manjaro", completed: false },
+  { text: "Manjaro", completed: true },
   { text: "Windows", completed: false },
 ];
 
@@ -21,8 +21,8 @@ function App() {
       <TodoSearch />
 
       <TodoList>
-        {todos.map((todo) => {
-          return <TodoItem key={todo.text} {...todo} />;
+        {todos.map(({ text, completed }) => {
+          return <TodoItem key={text} text={text} completed={completed} />;
         })}
       </TodoList>
 
