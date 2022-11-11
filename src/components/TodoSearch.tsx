@@ -1,3 +1,5 @@
+import "../styles/TodoSearch.css";
+
 export const TodoSearch = () => {
-  return <input type="text" placeholder="Sistema" />;
+  return <input className="TodoSearch" type="text" placeholder="Sistema" />;
 };

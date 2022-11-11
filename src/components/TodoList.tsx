@@ -1,3 +1,5 @@
+import "../styles/TodoList.css";
+
 interface IProps {
   children: React.ReactNode;
 }

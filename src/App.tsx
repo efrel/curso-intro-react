@@ -1,9 +1,11 @@
-import { TodoCounter, TodoSearch } from "./components";
-
-interface ITodo {
-  text: string;
-  completed: boolean;
-}
+import { ITodo } from "./models";
+import {
+  CreateTodoButton,
+  TodoCounter,
+  TodoItem,
+  TodoList,
+  TodoSearch,
+} from "./components";
 
 const todos: ITodo[] = [
   { text: "ubuntu", completed: false },
@@ -18,14 +20,13 @@ function App() {
 
       <TodoSearch />
 
-      {/* <TodoList>
+      <TodoList>
         {todos.map((todo) => {
-          <TodoItem />;
+          return <TodoItem key={todo.text} {...todo} />;
         })}
-      </TodoList> */}
+      </TodoList>
 
-      {/* <CreateTodoButton /> */}
-      <button>+</button>
+      <CreateTodoButton />
     </>
   );
 }
