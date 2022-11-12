@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ITodo } from "./models";
 import {
   CreateTodoButton,
@@ -14,11 +15,13 @@ const todos: ITodo[] = [
 ];
 
 function App() {
+  const [searchValue, setSearchValue] = useState<string>("");
+
   return (
     <>
       <TodoCounter />
 
-      <TodoSearch />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
         {todos.map(({ text, completed }) => {

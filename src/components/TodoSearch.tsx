@@ -1,9 +1,11 @@
-import { useState } from "react";
 import "../styles/TodoSearch.css";
 
-export const TodoSearch = () => {
-  const [searchValue, setSearchValue] = useState<string>("");
+interface IProps {
+  searchValue: string;
+  setSearchValue: (v: string) => void;
+}
 
+export const TodoSearch = ({ searchValue, setSearchValue }: IProps) => {
   const onSearchValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value);
     setSearchValue(event.target.value);
