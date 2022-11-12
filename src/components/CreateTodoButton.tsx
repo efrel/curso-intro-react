@@ -1,7 +1,11 @@
 import "../styles/CreateTodoButton.css";
 
 const CreateTodoButton = () => {
-  return <button className="CreateTodoButton">+</button>;
+  return (
+    <>
+      <button className="CreateTodoButton">+</button>
+    </>
+  );
 };
 
 export { CreateTodoButton };
