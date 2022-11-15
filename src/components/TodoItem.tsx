@@ -1,30 +1,25 @@
-import { ITodo } from "./../models/Todo";
 import "../styles/TodoItem.css";
 
-export const TodoItem = ({ text, completed }: ITodo) => {
-  const onClickButton = (msg: string) => {
-    alert(msg);
-  };
+interface IProps {
+  text: string;
+  completed: boolean;
+  onComplete: () => void;
+  onDelete: () => void;
+}
 
+export const TodoItem = ({ text, completed, onComplete, onDelete }: IProps) => {
   return (
     <li className="TodoItem">
       <span
         className={`Icon Icon-check ${completed && "Icon-check--active"}`}
-        onClick={() => onClickButton(`Aquí se abriria el modal`)}
+        onClick={onComplete}
       >
         ✔
       </span>
       <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
         {text}
       </p>
-      <span
-        className="Icon Icon-delete"
-        onClick={() =>
-          onClickButton(
-            `Esta función se ejecuta al inicio, no al presionar el botón`
-          )
-        }
-      >
+      <span className="Icon Icon-delete" onClick={onDelete}>
         X
       </span>
     </li>
