@@ -1,4 +1,4 @@
-import "../styles/TodoList.css";
+import "./TodoList.css";
 
 interface IProps {
   children: React.ReactNode;

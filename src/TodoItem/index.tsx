@@ -1,4 +1,4 @@
-import "../styles/TodoItem.css";
+import "./TodoItem.css";
 
 interface IProps {
   text: string;

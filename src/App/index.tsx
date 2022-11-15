@@ -1,12 +1,6 @@
 import { useState } from "react";
-import { ITodo } from "./models";
-import {
-  CreateTodoButton,
-  TodoCounter,
-  TodoItem,
-  TodoList,
-  TodoSearch,
-} from "./components";
+import { ITodo } from "../models";
+import { AppUI } from "./AppUI";
 
 const defaultTodos: ITodo[] = [
   { text: "ubuntu", completed: true },
@@ -51,27 +45,15 @@ function App() {
   };
 
   return (
-    <>
-      <TodoCounter total={totalTodos} completed={completedTodos} />
-
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-
-      <TodoList>
-        {searchedTodos.map(({ text, completed }) => {
-          return (
-            <TodoItem
-              key={text}
-              text={text}
-              completed={completed}
-              onComplete={() => completeTodo(text)}
-              onDelete={() => deleteTodo(text)}
-            />
-          );
-        })}
-      </TodoList>
-
-      <CreateTodoButton />
-    </>
+    <AppUI
+      totalTodos={totalTodos}
+      completedTodos={completedTodos}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedTodos={searchedTodos}
+      completeTodo={completeTodo}
+      deleteTodo={deleteTodo}
+    />
   );
 }
 

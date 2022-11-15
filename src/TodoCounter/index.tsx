@@ -1,4 +1,4 @@
-import "../styles/TodoCounter.css";
+import "./TodoCounter.css";
 
 interface IProps {
   total: number;
