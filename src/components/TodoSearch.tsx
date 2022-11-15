@@ -20,7 +20,6 @@ export const TodoSearch = ({ searchValue, setSearchValue }: IProps) => {
         value={searchValue}
         onChange={onSearchValueChange}
       />
-      <span>{searchValue}</span>
     </>
   );
 };
