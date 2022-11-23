@@ -2,12 +2,6 @@ import { useState } from "react";
 import { ITodo } from "../models";
 import { AppUI } from "./AppUI";
 
-// const defaultTodos: ITodo[] = [
-//   { text: "ubuntu", completed: true },
-//   { text: "Manjaro", completed: true },
-//   { text: "Windows", completed: false },
-// ];
-
 function useLocalStorage(itemName: string) {
   const localStorageItem = localStorage.getItem(itemName);
   let parsedItem: ITodo[];
