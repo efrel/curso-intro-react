@@ -2,9 +2,9 @@ import { useState } from "react";
 import { ITodo } from "../models";
 import { AppUI } from "./AppUI";
 
-function useLocalStorage(itemName: string, initialValue: any) {
+function useLocalStorage<D>(itemName: string, initialValue: D) {
   const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem: ITodo[];
+  let parsedItem: D;
 
   if (!localStorageItem) {
     localStorage.setItem(itemName, JSON.stringify(initialValue));
@@ -13,9 +13,9 @@ function useLocalStorage(itemName: string, initialValue: any) {
     parsedItem = JSON.parse(localStorageItem);
   }
 
-  const [item, setItem] = useState<ITodo[]>(parsedItem);
+  const [item, setItem] = useState<D>(parsedItem);
 
-  const saveItem = (newItem: ITodo[]) => {
+  const saveItem = (newItem: D) => {
     const stringfiedItem = JSON.stringify(newItem);
     localStorage.setItem(itemName, stringfiedItem);
     setItem(newItem);
@@ -25,7 +25,7 @@ function useLocalStorage(itemName: string, initialValue: any) {
 }
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
+  const [todos, saveTodos] = useLocalStorage<ITodo[]>("TODOS_V1", []);
 
   const [searchValue, setSearchValue] = useState<string>("");
 
